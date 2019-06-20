@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-md-center">
+                <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+            
+        </div>
+        
+        <div class="row">
+            <form method="post" action="">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback alert-validation">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg", placeholder="Usuário") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback alert-validation">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg", placeholder="E-mail") }}
+                    {% endif %}
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {% if form.password.errors %}
+                            {{ form.password(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback alert-validation">
+                                {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(class="form-control form-control-lg", placeholder="Senha") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {% if form.confirm_password.errors %}
+                            {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback alert-validation">
+                                {% for error in form.confirm_password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.confirm_password(class="form-control form-control-lg", placeholder="Confirmar Senha") }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-row back-login">
+                    <div class="form-group col-md-6">
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <a type="submit" class="btn btn-light" href="{{ url_for('index') }}">Tem conta? Fazer login</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock content %}

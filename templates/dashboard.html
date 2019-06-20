@@ -1,0 +1,187 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+        </div>
+        
+        <div class="row">
+            <div class="col-10">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
+                        <h1>Dashboard</h1>
+                    </div>
+                    <div class="tab-pane fade col-md-5" id="pills-cadastrar-pokemon" role="tabpanel" aria-labelledby="pills-cadastrar-pokemon-tab">
+                        <form>
+                            {{ form.hidden_tag() }}
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    {% if form.pokemon_index.errors %}
+                                        {{ form.pokemon_index(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.pokemon_index.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.pokemon_index(class="form-control", placeholder="Índice") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group col-md-10">
+                                    {% if form.name.errors %}
+                                        {{ form.name(class="form-control is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.name.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.name(class="form-control", placeholder="Nome") }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    {% if form.height.errors %}
+                                        {{ form.height(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.height.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.height(class="form-control", placeholder="Altura") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {% if form.weight.errors %}
+                                        {{ form.weight(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.weight.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.weight(class="form-control", placeholder="Peso") }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    {% if form.hp.errors %}
+                                        {{ form.hp(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.hp.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.hp(class="form-control", placeholder="Vida") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group col-md-4">
+                                    {% if form.attack.errors %}
+                                        {{ form.attack(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.attack.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.attack(class="form-control", placeholder="Ataque") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group col-md-4">
+                                    {% if form.defense.errors %}
+                                        {{ form.defense(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.defense.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.defense(class="form-control", placeholder="Defesa") }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    {% if form.special_attack.errors %}
+                                        {{ form.special_attack(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.special_attack.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.special_attack(class="form-control", placeholder="Ataque Especial") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group col-md-4">
+                                    {% if form.special_defense.errors %}
+                                        {{ form.special_defense(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.special_defense.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.special_defense(class="form-control", placeholder="Defesa Especial") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group col-md-4">
+                                    {% if form.speed.errors %}
+                                        {{ form.speed(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.speed.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.speed(class="form-control", placeholder="Velocidade") }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {% if form.specie.errors %}
+                                    {{ form.specie(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.specie.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.specie(class="form-control", placeholder="Espécie") }}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {% if form.type.errors %}
+                                    {{ form.type(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.type.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.type(class="form-control", placeholder="Tipo") }}
+                                {% endif %}
+                            </div>
+                            {{ form.submit(class="btn btn-primary") }}
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="pills-relatorio" role="tabpanel" aria-labelledby="pills-relatorio-tab">
+                        <h1>Relatórios</h1>
+                    </div>
+                </div>
+            </div>            
+            <div class="col-md-2 menu">
+                <p class="menu-titulo">MENU</p>
+                <div class="nav flex-column nav-pills" id="pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="pills-dashboard-tab" data-toggle="pill" href="#pills-dashboard" role="tab" aria-controls="pills-dashboard" aria-selected="true">Dashboard</a>
+                    <a class="nav-link" id="pills-cadastrar-pokemon-tab" data-toggle="pill" href="#pills-cadastrar-pokemon" role="tab" aria-controls="pills-cadastrar-pokemon" aria-selected="false">Cadastrar Pokemon</a>
+                    <a class="nav-link" id="pills-relatorio-tab" data-toggle="pill" href="#pills-relatorio" role="tab" aria-controls="pills-relatorio" aria-selected="false">Relatório</a>
+                </div>
+            </div>            
+        </div>        
+    </div>
+{% endblock content %}

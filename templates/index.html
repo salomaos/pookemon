@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <header>
+        <a href="{{ url_for('user_signup') }}" class="btn btn-primary criar-conta">Criar conta</a>
+    </header>
+    <div class="container">
+
+        <img class="mx-auto logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback alert-validation">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control form-control-lg", placeholder="Email") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {% if form.password.errors %}
+                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback alert-validation">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="form-control form-control-lg", placeholder="Senha") }}
+                {% endif %}
+            </div>
+            <div class="custom-control custom-checkbox mr-sm-2 remember-me">
+                {{ form.remember(class="custom-control-input") }}
+                {{ form.remember.label(class="custom-control-label") }}
+            </div>
+            {{ form.submit(class="btn btn-primary btn-block") }}
+            <small class="text-muted ml-2">
+                <a class="forgot-password" href="#">Esqueceu a senha?</a>
+            </small>
+        </form>
+    </div>
+{% endblock content %}

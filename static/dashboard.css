@@ -1,0 +1,76 @@
+body {
+    background: url("img/pika.png") no-repeat #2D339D;
+    background-position-y: 150px;
+    background-size: cover;
+}
+
+.logo {
+    width: 300px;
+    margin: 50px auto;
+}
+
+.menu-titulo {
+    font-weight: bold;
+}
+
+.menu {
+    height: 300px;
+    background-color: #ffffff;
+    padding: 50px 30px;
+    border-radius: 10px;
+}
+
+.nav-link {
+    color: #2D339D;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #2D339D;
+}
+
+form {
+    margin-top: 100px;
+}
+
+.form-group {
+    margin-bottom: .5rem;
+}
+
+.form-control {
+    border-radius: .1rem;
+    border: none;
+}
+
+.btn {
+    border-radius: .1rem;
+    padding-bottom: .7rem;
+    font-weight: bold;
+    width: 100%;
+    background-color: #2D339D;
+    border-color: #2D339D;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    color: #2D339D;
+    border: 2px solid #2D339D;
+}
+
+.container {
+    max-width: 1500px;
+}
+
+select {
+    background: url("img/keyboard_arrow_down_grey_192x192.png") no-repeat #354880;
+    background-position: 145px center;
+    -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+    -moz-appearance: none;
+}
+
+footer .nav-link {
+    color: #ffffff;
+}
+
+footer .nav-link:hover {
+    text-decoration: underline;
+}
